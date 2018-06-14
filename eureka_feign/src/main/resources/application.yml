@@ -1,0 +1,15 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.0.241:8761/eureka/
+server:
+  port: 8765
+spring:
+  application:
+    name: service-feign
+  zipkin:
+    base-ur: http://localhost:9411
+  http:
+    multipart:
+      max-file-size: 10000000MB
+      max-request-size: 10000000MB

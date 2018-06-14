@@ -1,10 +1,10 @@
 rootProject.name = 'spring-cloud-application'
-include 'eureka_zuul'
-include 'eureka_zipkin_server'
-include 'eureka_ribbon'
-include 'eureka_miya'
-include 'eureka_feign'
-include 'eureka_config_client'
-include 'eureka_config'
-include 'eureka_client'
-include 'eureka_server'
+include 'eureka_zuul',
+        'eureka_zipkin_server',
+        'eureka_ribbon',
+        'eureka_miya',
+        'eureka_feign',
+        'eureka_config_client',
+        'eureka_config',
+        'eureka_client',
+        'eureka_server'

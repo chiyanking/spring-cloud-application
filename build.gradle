@@ -1,14 +1,68 @@
-plugins {
-    id 'java'
+
+/**
+ * The buildscript {} block is where you configure the repositories and
+ * dependencies for Gradle itself--meaning, you should not include dependencies
+ * for your modules here. For example, this block includes the Android plugin for
+ * Gradle as a dependency because it provides the additional instructions Gradle
+ * needs to build Android app modules.
+ */
+buildscript {
+
+
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    /**
+     * The repositories {} block configures the repositories Gradle uses to
+     * search or download the dependencies. Gradle pre-configures support for remote
+     * repositories such as JCenter, Maven Central, and Ivy. You can also use local
+     * repositories or define your own remote repositories. The code below defines
+     * JCenter as the repository Gradle should use to look for its dependencies.
+     */
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        mavenCentral()
+    }
+    /**
+     * The dependencies {} block configures the dependencies Gradle needs to use
+     * to build your project. The following line adds Android Plugin for Gradle
+     * version 3.1.0 as a classpath dependency.
+     */
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
-group 'com.dagemen'
-version '1.0-SNAPSHOT'
+/**
+ * The allprojects block is used to add configuration items that will apply to all sub-projects as well as the root project.
+ * In a similar fashion, the subprojects block can be used to add configurations items for all sub-projects only.
+ * You can use these two blocks as many times as you want in the root project.
+ */
+allprojects {
 
-sourceCompatibility = 1.8
 
-repositories {
-    mavenLocal()
-    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
-    mavenCentral()
+
+    ext {
+        springCloudVersion = 'Dalston.SR4'
+    }
+
+    group = 'com.dagemen'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
 }

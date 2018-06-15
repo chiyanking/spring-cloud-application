@@ -1,0 +1,19 @@
+
+spring:
+  application:
+    name: service-authrization
+  datasource:
+    url: jdbc:mysql://192.168.0.21:3306/user_center?characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
+    username: developer
+    password: uX%CU9CS
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8081
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.0.241:8761/eureka/
+security:
+  user:
+    name: root
+    password: 1234

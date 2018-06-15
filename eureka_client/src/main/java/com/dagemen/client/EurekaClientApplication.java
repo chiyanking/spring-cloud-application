@@ -1,15 +1,20 @@
 package com.dagemen.client;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableHystrixDashboard
+@EnableHystrix
 @RestController
 public class EurekaClientApplication {
 
@@ -21,7 +26,9 @@ public class EurekaClientApplication {
 
 	@Value("${server.port}")
 	String port;
+
 	@RequestMapping("/hi")
+	@HystrixCommand(fallbackMethod = "hiError")
 	public String hi(@RequestParam String name) {
 		return "hi "+name+",i am from port:" +port;
 	}
@@ -30,6 +37,11 @@ public class EurekaClientApplication {
 	@RequestMapping("/hello")
 	public String hello(@RequestParam String name) {
 		return "hello "+name+",i am from port:" +port;
+	}
+
+
+	public String hiError(String name) {
+		return "hi,"+name+",sorry,error!";
 	}
 
 }

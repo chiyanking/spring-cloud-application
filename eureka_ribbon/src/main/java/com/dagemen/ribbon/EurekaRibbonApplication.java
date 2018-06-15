@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableHystrix//开启断路器
-@EnableHystrixDashboard//开启模版
 public class EurekaRibbonApplication {
 
 	public static void main(String[] args) {

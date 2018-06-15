@@ -23,6 +23,8 @@ buildscript {
         mavenLocal()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         mavenCentral()
+        maven { url "https://repo.spring.io/plugins-release" }
+        maven { url "https://repo.spring.io/libs-release" }
     }
     /**
      * The dependencies {} block configures the dependencies Gradle needs to use
@@ -58,6 +60,8 @@ allprojects {
         mavenLocal()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         mavenCentral()
+        maven { url "https://repo.spring.io/plugins-release" }
+        maven { url "https://repo.spring.io/libs-release" }
     }
 
     dependencyManagement {

@@ -7,4 +7,5 @@ include 'eureka_zuul',
         'eureka_config_client',
         'eureka_config',
         'eureka_client',
-        'eureka_server'
+        'eureka_server',
+        'eureka_turbine'

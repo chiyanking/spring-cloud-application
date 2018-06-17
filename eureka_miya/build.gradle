@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.5.8.RELEASE'
+        springBootVersion = '2.0.3.RELEASE'
     }
     repositories {
         mavenLocal()
@@ -22,7 +22,7 @@ sourceCompatibility = 1.8
 
 
 ext {
-    springCloudVersion = 'Dalston.SR4'
+    springCloudVersion = 'Finchley.RC2'
 }
 
 dependencies {

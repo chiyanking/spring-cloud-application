@@ -38,7 +38,7 @@ buildscript {
  * In a similar fashion, the subprojects block can be used to add configurations items for all sub-projects only.
  * You can use these two blocks as many times as you want in the root project.
  */
-allprojects {
+subprojects {
 
 
     ext {

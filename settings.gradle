@@ -1,6 +1,5 @@
 rootProject.name = 'spring-cloud-application'
 include 'eureka_zuul',
-        'eureka_zipkin_server',
         'eureka_ribbon',
         'eureka_miya',
         'eureka_feign',

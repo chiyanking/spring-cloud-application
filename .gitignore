@@ -1,5 +1,7 @@
 .gradle
+.vscode
 /**/build/
+**/bin/
 gradle-wrapper.jar
 
 ### STS ###
@@ -17,6 +19,7 @@ gradle-wrapper.jar
 *.iml
 *.ipr
 **/out/
+
 
 ### NetBeans ###
 /**/nbproject/private/

@@ -1,8 +1,0 @@
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-dependencies {
-    compile("io.zipkin.java:zipkin-server:1.26.1")
-    compile("io.zipkin.java:zipkin-autoconfigure-ui:1.26.1")
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-}

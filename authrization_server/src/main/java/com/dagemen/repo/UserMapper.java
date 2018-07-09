@@ -50,4 +50,8 @@ public interface UserMapper {
     @Select("select id,name,age from person where id=#{id}")
     PointUserDO selectById(@Param("id") Long id);
 
+
+
+    @Select("select id,name,age from ${p} where id=#{id}")
+    List<PointUserDO> selectPage(@Param("id") Long id,@Param("p") String person);
 }

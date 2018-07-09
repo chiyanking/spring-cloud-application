@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Random;
 
 @RunWith(SpringRunner.class)
@@ -25,5 +26,11 @@ public class UserMapperTest {
         user.setPhone("15757125055");
         userMapper.insert(user);
         System.out.println(user);
+    }
+
+    @Test
+    public void testSelect() {
+        List<PointUserDO> persons = userMapper.selectPage(1l, "person");
+        System.out.println(persons);
     }
 }

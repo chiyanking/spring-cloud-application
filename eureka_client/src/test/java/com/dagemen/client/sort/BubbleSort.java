@@ -1,4 +1,4 @@
-package com.dagemen.client.sortPackage;
+package com.dagemen.client.sort;
 
 public class BubbleSort {
 

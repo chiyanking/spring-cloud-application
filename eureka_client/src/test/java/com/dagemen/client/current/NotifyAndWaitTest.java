@@ -4,8 +4,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.DateFormat;
-
 /**
  * 具体使用notify和wait方法
  * 从字节码层面来看 monitorenter monitorexit 两个代码区域
@@ -38,8 +36,8 @@ public class NotifyAndWaitTest {
                 synchronized (lock) {
                     lock.notifyAll();
                     logger.info("{}:唤醒一个线程 时间:{}", Thread.currentThread().getName(), System.currentTimeMillis());
-                    Thread.sleep(1000l);
                 }
+                Thread.sleep(5*100000l);
             } catch (Exception e) {
                 e.printStackTrace();
             }

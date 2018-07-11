@@ -83,7 +83,7 @@ public class BlockBlockingQueueTest {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         // 建立一个装苹果的篮子
         Basket basket = new Basket();
@@ -98,12 +98,10 @@ public class BlockBlockingQueueTest {
         service.submit(producer2);
         service.submit(consumer);
         service.submit(consumer2);
-        // 程序运行5s后，所有任务停止
-//        try {
-//            Thread.sleep(1000 * 5);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        service.shutdownNow();
+
+        synchronized (service){
+            service.wait();
+        }
+        service.shutdownNow();
     }
 }

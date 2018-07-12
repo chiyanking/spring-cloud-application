@@ -33,4 +33,8 @@ public class UserMapperTest {
         List<PointUserDO> persons = userMapper.selectPage(1l, "person");
         System.out.println(persons);
     }
+
+    @Test
+    public void insert1() {
+    }
 }

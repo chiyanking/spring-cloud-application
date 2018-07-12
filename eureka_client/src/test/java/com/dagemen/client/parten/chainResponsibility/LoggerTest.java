@@ -1,8 +1,13 @@
 package com.dagemen.client.parten.chainResponsibility;
 
-public class ChainPatternDemo {
+import org.junit.Test;
 
-    private static AbstractLogger getChainOfLoggers(){
+import static org.junit.Assert.*;
+
+public class LoggerTest {
+
+
+    private  AbstractLogger getChainOfLoggers(){
 
         AbstractLogger errorLogger = new ErrorLogger(AbstractLogger.ERROR);
         AbstractLogger fileLogger = new FileLogger(AbstractLogger.DEBUG);
@@ -13,8 +18,9 @@ public class ChainPatternDemo {
 
         return errorLogger;
     }
+    @Test
+    public void write() {
 
-    public static void main(String[] args) {
         AbstractLogger loggerChain = getChainOfLoggers();
 
         loggerChain.logMessage(AbstractLogger.INFO,

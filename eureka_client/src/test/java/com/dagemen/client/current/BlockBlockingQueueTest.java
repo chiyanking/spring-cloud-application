@@ -1,4 +1,4 @@
-package com.dagemen.client;
+package com.dagemen.client.current;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

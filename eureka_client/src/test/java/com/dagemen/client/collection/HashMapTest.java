@@ -1,4 +1,4 @@
-package com.dagemen.client;
+package com.dagemen.client.collection;
 
 import com.google.common.base.Function;
 import org.junit.Test;

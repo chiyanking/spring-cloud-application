@@ -1,4 +1,4 @@
-package com.dagemen.client;
+package com.dagemen.client.current;
 
 import java.util.concurrent.TimeUnit;
 

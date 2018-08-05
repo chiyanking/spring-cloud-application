@@ -3,6 +3,7 @@ package com.dagemen.client.current;
 import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockTest {
@@ -39,4 +40,7 @@ public class ReentrantLockTest {
         ReentrantLock reentrantLock = new ReentrantLock(false);
 
     }
+
+
+    private int waiteSate;
 }

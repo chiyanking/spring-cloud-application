@@ -10,8 +10,8 @@ public class ConcreteIterator<T> implements Iterator<T> {
     private int cursor;
 
 
-    public ConcreteIterator(List<T> arraylist) {
-        this.arraylist = arraylist;
+    public ConcreteIterator(List<T> arrayList) {
+        this.arraylist = arrayList;
     }
 
     @Override

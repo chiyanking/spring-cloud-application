@@ -4,24 +4,51 @@ import java.util.List;
 
 public class ConcreteContainer<T> implements Container<T> {
 
-    private List<Object> list;
+    private List<T> arraylist;
 
-    public ConcreteContainer(List<Object> list) {
-        this.list = list;
+    public ConcreteContainer(List<T> arraylist) {
+        this.arraylist = arraylist;
     }
 
     @Override
     public void add(T obj) {
-        list.add(obj);
+        arraylist.add(obj);
     }
 
     @Override
     public void remove(T obj) {
-        list.remove(obj);
+        arraylist.remove(obj);
     }
 
     @Override
     public Iterator iterator() {
-        return new ConcreteIterator(list);
+        return new DefaultIterator();
+    }
+
+    private class DefaultIterator implements Iterator {
+
+
+        private int cursor;
+
+        @Override
+        public T first() {
+            cursor = 0;
+            return arraylist.get(cursor);
+        }
+
+        @Override
+        public T next() {
+            return arraylist.get(cursor++);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return !(cursor == arraylist.size());
+        }
+
+        @Override
+        public T currentItem() {
+            return arraylist.get(cursor);
+        }
     }
 }

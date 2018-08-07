@@ -1,8 +1,7 @@
 package com.dagemen.client.parten.bridge;
 
+import com.dagemen.client.parten.bridge1.CementRoad;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class RoadTest {
 

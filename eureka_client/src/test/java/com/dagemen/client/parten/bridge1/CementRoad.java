@@ -1,4 +1,7 @@
-package com.dagemen.client.parten.bridge;
+package com.dagemen.client.parten.bridge1;
+
+import com.dagemen.client.parten.bridge.Road;
+import com.dagemen.client.parten.bridge.Vehicle;
 
 public class CementRoad extends Road {
 

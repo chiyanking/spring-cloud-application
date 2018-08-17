@@ -2,7 +2,9 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
-	compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile project(path: ':eureka_common')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
+    compile('org.springframework.cloud:spring-cloud-starter-oauth2')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

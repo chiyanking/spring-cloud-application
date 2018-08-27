@@ -1,47 +1,36 @@
-buildscript {
-    ext {
-        springBootVersion = '2.0.3.RELEASE'
-    }
-    // gradle 构建脚本的仓库
-    repositories {
-        mavenLocal()
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url "https://repo.spring.io/milestone" }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
-
 group = 'com.dagemen'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
-
-// gradle 构建脚本的仓库
-repositories {
-    mavenLocal()
-    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-    maven { url "https://repo.spring.io/milestone" }
-}
-
-
-
 ext {
-    springCloudVersion = 'Finchley.RC2'
-    springCloudServicesVersion = '2.0.0.RC1'
+    artifactId = "common"
 }
+apply plugin: 'java'
+apply plugin: 'maven'
 
-dependencies {
-
+jar {
+    enabled = true
 }
-
-dependencyManagement {
-    imports {
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:${springCloudServicesVersion}"
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//如果希望gradle install，安装到.m2本地仓库，参考下面的内容
+install {
+    repositories.mavenInstaller {
+        pom.version = "$project.version"
+        pom.artifactId = "$artifactId"
+        pom.groupId = "$project.group"
     }
 }
+//上传到nexus
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://192.168.0.23:8081/repository/maven-third-party/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            println "------------project.artifactId------------"
+            println project.artifactId
+            pom.version = "$project.version"
+            pom.artifactId = "$project.artifactId"
+            pom.groupId = "$project.group"
+        }
+    }
+}
+

@@ -6,8 +6,6 @@
  * needs to build Android app modules.
  */
 buildscript {
-
-
     ext {
         springBootVersion = '2.0.3.RELEASE'
     }
@@ -38,19 +36,17 @@ buildscript {
  * In a similar fashion, the subprojects block can be used to add configurations items for all sub-projects only.
  * You can use these two blocks as many times as you want in the root project.
  */
-subprojects {
-
+subprojects { subProject ->
 
     ext {
         springCloudVersion = 'Finchley.RC2'
         springCloudServicesVersion = '2.0.0.RC1'
     }
-
     group = 'com.dagemen'
     version = '0.0.1-SNAPSHOT'
 
     apply plugin: 'java'
-    apply plugin: 'idea'
+    apply plugin: 'idea'//gradle idea，就会生成Intellij的项目文件
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 

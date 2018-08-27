@@ -1,14 +1,14 @@
 package com.dagemen.ribbon.com.dagemen.filter;
 
+import com.dagemen.common.SecurityConstants;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import sun.security.util.SecurityConstants;
 
-import static org.springframework.cloud.netflix.zuul.filters.support.;
 
 public class AccessFilter extends ZuulFilter {
     @Override
@@ -35,7 +35,6 @@ public class AccessFilter extends ZuulFilter {
             RequestContext requestContext = RequestContext.getCurrentContext();
             requestContext.addZuulRequestHeader(SecurityConstants.USER_HEADER, authentication.getName());
             requestContext.addZuulRequestHeader(SecurityConstants.ROLE_HEADER,  CollectionUtil.join(authentication.getAuthorities(),","));
-
         }
         return null;
     }

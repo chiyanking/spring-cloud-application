@@ -1,4 +1,4 @@
-package com.dagemen.client.parten.Visitor;
+package com.dagemen.client.parten.visitor;
 
 public class ResearcherSelection implements Visitor {
     @Override
